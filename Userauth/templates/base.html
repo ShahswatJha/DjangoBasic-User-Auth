@@ -35,15 +35,14 @@
        </div>
     </nav>
   </div>
-<body style="background-color:cornsilk; font-size: 100%;"  >
-    <main>
+<body style="background-color:cornsilk; font-size: 100%; display: flex; min-height: 100vh; flex-direction: column;" >
+    <main style="flex: 1 0 auto;">
     {% block content %}
     
     {% endblock content %}
 
     </main>
   
-  </body>
   <footer class="page-footer" style="background:dodgerblue;">
     <div class="container">
       <div class="row">
@@ -66,4 +65,5 @@
       </div>
     </div>
   </footer>
+</body>
 </html>
