@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--<title>Welcome!!!</title>-->
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+</head>
+
+    <div class="navbar-fixed">
+    <nav style="background:dodgerblue;">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo right">KIIT</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down"></ul>
+                {% if request.user.is_authenticated %}
+                    <p> <li><a href="{% url 'home' %}">Home-Page</a> | <a href="{% url 'logout' %}">LOGOUT</a></li> 
+                    </p>
+
+                {% else %}
+                <p> 
+                  <li><a href= "{% url 'register' %}"><b> REGISTER </b> </a> |
+                      <a href= "{% url 'login' %}"><b> LOGIN </b></a> |
+                     <a> PLS REGISTER OR LOGIN TO VIEW THE HOME PAGE </a>
+                  </li>
+                </p>
+                {% endif %}
+    
+            </ul>
+       </div>
+    </nav>
+  </div>
+<body style="background-color:cornsilk; font-size: 100%;"  >
+    <main>
+    {% block content %}
+    
+    {% endblock content %}
+
+    </main>
+  
+  </body>
+  <footer class="page-footer" style="background:dodgerblue;">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Don't have any Footer Content :(</h5>
+          <p class="grey-text text-lighten-4"></p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">Links</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+      </div>
+    </div>
+  </footer>
+</html>

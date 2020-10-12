@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if request.user.is_authenticated %}
+  <div style="font-size:50%;">
+    <h1> Welcome to Registered Users !!! </h1>
+      <h2> {{ var }} </h2>
+      {% for us in account %}
+        <h2>{{ us }} | {{ us.username }} </h2>
+      {% endfor %}
+  </div>
+{% endif %}
+{% endblock content %}

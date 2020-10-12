@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content  %}
+
+<h1> Welcome! Pls Login </h1>
+
+<form method="post">{% csrf_token %}
+    {% for field in login_form %}
+        <p>
+            {{field.label_tag}}
+            {{field}}
+
+            {% if field.help_text  %}
+                <p style="color:green;">{{field.help_text}}</p>
+            {% endif %}
+
+            {% for ferr in field.errors  %}
+                <p style="color:firebrick;">{{ferr}}</p>
+            {% endfor %}
+
+            {% if login_form.non_field_errors %}
+                <div style="color:firebrick;">
+                    <h3><p> {{ login_form.non_field_errors }} </p></h3>
+                </div>
+            {% endif %}
+        </p>
+
+    {% endfor %}
+    <button type="submit"><a class="waves-effect waves-light btn"><i class="material-icons left"  style="color: darkblue;"> LOG IN </i></a></button>
+</form>
+{% endblock content %}

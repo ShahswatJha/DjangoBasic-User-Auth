@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content  %}
+
+<h1> Welcome! Fill the details to Register </h1>
+
+<form method="post">{% csrf_token %}
+    {% for field in registration_form %}
+        <p>
+            {{field.label_tag}}
+            {{field}}
+
+            {% if field.help_text  %}
+                <p style="color:green;">{{field.help_text}}</p>
+            {% endif %}
+
+            {% for ferr in field.errors  %}
+                <p style="color:firebrick;">{{ferr}}</p>
+            {% endfor %}
+        </p>
+
+
+    {% endfor %}
+
+    <button><a class="waves-effect waves-light btn"><i class="material-icons left"  style="color: darkblue;"></i> Register</a> </button>
+</form>
+
+{% endblock content %}
